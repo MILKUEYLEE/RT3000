@@ -1,0 +1,55 @@
+Determining if the pthread_create exist failed with the following output:
+Change Dir: /home/lmk/VTD.2020/Develop/Modules/iVH_Interface_Treeze_DrivingSimulator/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_80871/fast"
+/usr/bin/make -f CMakeFiles/cmTC_80871.dir/build.make CMakeFiles/cmTC_80871.dir/build
+make[1]: Entering directory '/home/lmk/VTD.2020/Develop/Modules/iVH_Interface_Treeze_DrivingSimulator/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_80871.dir/CheckSymbolExists.cxx.o
+/usr/bin/c++     -o CMakeFiles/cmTC_80871.dir/CheckSymbolExists.cxx.o -c /home/lmk/VTD.2020/Develop/Modules/iVH_Interface_Treeze_DrivingSimulator/build/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx
+Linking CXX executable cmTC_80871
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_80871.dir/link.txt --verbose=1
+/usr/bin/c++       -rdynamic CMakeFiles/cmTC_80871.dir/CheckSymbolExists.cxx.o  -o cmTC_80871 
+CMakeFiles/cmTC_80871.dir/CheckSymbolExists.cxx.o: In function `main':
+CheckSymbolExists.cxx:(.text+0x1b): undefined reference to `pthread_create'
+collect2: error: ld returned 1 exit status
+CMakeFiles/cmTC_80871.dir/build.make:97: recipe for target 'cmTC_80871' failed
+make[1]: *** [cmTC_80871] Error 1
+make[1]: Leaving directory '/home/lmk/VTD.2020/Develop/Modules/iVH_Interface_Treeze_DrivingSimulator/build/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_80871/fast' failed
+make: *** [cmTC_80871/fast] Error 2
+
+File /home/lmk/VTD.2020/Develop/Modules/iVH_Interface_Treeze_DrivingSimulator/build/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx:
+/* */
+#include <pthread.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef pthread_create
+  return ((int*)(&pthread_create))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the function pthread_create exists in the pthreads failed with the following output:
+Change Dir: /home/lmk/VTD.2020/Develop/Modules/iVH_Interface_Treeze_DrivingSimulator/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_573db/fast"
+/usr/bin/make -f CMakeFiles/cmTC_573db.dir/build.make CMakeFiles/cmTC_573db.dir/build
+make[1]: Entering directory '/home/lmk/VTD.2020/Develop/Modules/iVH_Interface_Treeze_DrivingSimulator/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_573db.dir/CheckFunctionExists.cxx.o
+/usr/bin/c++    -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_573db.dir/CheckFunctionExists.cxx.o -c /home/lmk/VTD.2020/Develop/Modules/iVH_Interface_Treeze_DrivingSimulator/build/CMakeFiles/CheckLibraryExists/CheckFunctionExists.cxx
+Linking CXX executable cmTC_573db
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_573db.dir/link.txt --verbose=1
+/usr/bin/c++   -DCHECK_FUNCTION_EXISTS=pthread_create    -rdynamic CMakeFiles/cmTC_573db.dir/CheckFunctionExists.cxx.o  -o cmTC_573db -lpthreads 
+/usr/bin/ld: cannot find -lpthreads
+collect2: error: ld returned 1 exit status
+CMakeFiles/cmTC_573db.dir/build.make:97: recipe for target 'cmTC_573db' failed
+make[1]: *** [cmTC_573db] Error 1
+make[1]: Leaving directory '/home/lmk/VTD.2020/Develop/Modules/iVH_Interface_Treeze_DrivingSimulator/build/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_573db/fast' failed
+make: *** [cmTC_573db/fast] Error 2
+
+
