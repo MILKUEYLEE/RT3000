@@ -38,6 +38,62 @@
 #define DEFAULT_PORT6        8080   /* for GPS */
 #define DEFAULT_BUFFER_SIZE 204800
 
+#pragma pack(push, 1) //1 byte alignment
+        
+    typedef struct
+    {
+        // char Sync; // 0
+
+        // // Batch A
+        // unsigned short time;     // 1~2   각가속도 구하기 위해 사용할 수 있음
+        // int acc_x : 24; // 3~5  ext.accel.x 사용
+        // int acc_y : 24; // 6~8  ext.accel.y 사용
+        // int acc_z : 24; // 9~11
+        // int ang_x : 24; // 12~14
+        // int ang_y : 24; // 15~17
+        // int ang_z : 24; // 18~20
+
+        // char Nav_status; // 21
+
+        // char checksum1; // 22
+
+        // // Batch B
+        // double GPS_latitude;         // 23 ~ 30  그대로 사용
+        // double GPS_longitude;        // 31 ~ 38  그대로 사용
+        // float Altitude;              // 39 ~ 42
+        // int North_vel : 24; // 43 ~ 45
+        // int East_vel : 24;  // 46 ~ 48
+        // int Down_vel : 24;  // 49 ~ 51
+        // int Heading : 24;   // 52 ~ 54 base.pos.h 사용
+        // int pitch : 24;     // 55 ~ 57
+        // int Roll : 24;      // 58 ~ 60
+
+        // char checksum2; // 61
+
+        // char status_channel; // 62 범위 : 1~255
+
+        // // Batch S : 채널이 많아서 우선 8Byte로 통합하였음.
+        
+        // double Batch_S; // 63 ~ 70
+
+        // char checksum3; // 71
+        int8_t byt[3];
+        float time;
+        double   GPS_longitude;
+        double   GPS_latitude;
+        double   GPS_height;
+        double   GPS_azimuth;
+        float   INS_yaw_acc;
+        float   INS_pitch_acc;
+        float   INS_roll_acc;
+        double   INS_x_acc;
+        double   INS_y_acc;
+        double   INS_z_acc;
+
+    } RT_3000; // RT-3000 인터페이스 통신 프로토콜 내용 (UDP)
+#pragma pack(pop)
+
+RT_3000 rt_3000;
 // using Eigen::MatrixXd;
 
 std::string szServer("127.0.0.1");
